@@ -2,9 +2,25 @@ from datetime import datetime
 from flask import Flask, request, jsonify
 from main import app
 
-users = {}
-categories = {}
-records = {}
+users = {
+    '1': {'id': '1', 'name': 'Alice'},
+    '2': {'id': '2', 'name': 'Bob'},
+    '3': {'id': '3', 'name': 'Charlie'},
+}
+
+categories = {
+    '1': {'id': '1', 'name': 'Groceries'},
+    '2': {'id': '2', 'name': 'Utilities'},
+    '3': {'id': '3', 'name': 'Entertainment'},
+}
+
+records = {
+    '1': {'id': '1', 'user_id': '1', 'category_id': '1', 'amount': 50},
+    '2': {'id': '2', 'user_id': '2', 'category_id': '2', 'amount': 30},
+    '3': {'id': '3', 'user_id': '1', 'category_id': '3', 'amount': 20},
+    '4': {'id': '4', 'user_id': '3', 'category_id': '1', 'amount': 40},
+    '5': {'id': '5', 'user_id': '2', 'category_id': '2', 'amount': 25},
+}
 
 @app.route('/healthcheck', methods=['GET'])
 def health_check():
